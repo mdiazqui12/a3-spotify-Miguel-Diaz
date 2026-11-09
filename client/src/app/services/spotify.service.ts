@@ -48,7 +48,7 @@ export class SpotifyService {
 
       }
       else if (category === 'album'){
-        return data['albums']['itmes'].map((item) => new AlbumData(item));
+        return data['albums']['items'].map((item) => new AlbumData(item));
 
       }
       else {
