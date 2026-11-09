@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
   searchCategories:string[] = ['artist', 'album', 'track'];
   resources:ResourceData[];
 
+  resultCategory:string;//puts the results into a category.
   constructor(private spotifyService:SpotifyService) { }
 
   ngOnInit() {
@@ -25,6 +26,22 @@ export class SearchComponent implements OnInit {
 
   search() {
     //TODO: call search function in spotifyService and parse response
+    if (!this.searchString) { //if search box is empty, nothing is done
+      return;
+    }
+
+    const category = this.searchCategory; //saves the category that was saved
+
+    //gets the result, and saves it so it can get displayed 
+    this.spotifyService.searchFor(category, this.searchString).then((data) => {
+      this.resources = data;
+      this.resultCategory = category;
+    });
+  }
+
+  //only used if the category is a track 
+  get tracks():TrackData[] {
+    return this.resources as TrackData[];
   }
 
 }
