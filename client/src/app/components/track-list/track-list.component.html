@@ -21,7 +21,7 @@
 			@for (track of tracks; track $index; let i = $index){
 				<tr>
 					<!--TODO: Populate with row index (start with 1!)-->
-					<td>{{ i = 1 }}</td>
+					<td>{{ i + 1 }}</td>
 					<td>
 						<!--TODO: link to the endpoint for that track, display the track's name-->
 						<a> [routerLink]="['/track', track.id]">{{ track.name }}</a>
