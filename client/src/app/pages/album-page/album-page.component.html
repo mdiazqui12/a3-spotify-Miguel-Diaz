@@ -14,7 +14,7 @@
 			@for (artist of album.artists; track $index) {
 				<p>
 					<!--TODO: link to artist page, display artist name-->
-					Artist: <a [routerLink]="['/artist', aritst.id]">{{ artist.name }}</a>
+					Artist: <a [routerLink]="['/artist', artist.id]">{{ artist.name }}</a>
 				</p>
 			}
 			
